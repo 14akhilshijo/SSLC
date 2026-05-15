@@ -1,13 +1,11 @@
 'use client'
 import { useState } from 'react'
 import Header from '@/components/Header'
-import HeroBanner from '@/components/HeroBanner'
 import SearchSection from '@/components/SearchSection'
-import StatsSection from '@/components/StatsSection'
 import ResultCard from '@/components/ResultCard'
 import SchoolResultSection from '@/components/SchoolResultSection'
+import StatsSection from '@/components/StatsSection'
 import Footer from '@/components/Footer'
-import AnnouncementBanner from '@/components/AnnouncementBanner'
 import { ResultData } from '@/lib/types'
 
 export default function Home() {
@@ -15,12 +13,10 @@ export default function Home() {
   const [result, setResult] = useState<ResultData | null>(null)
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <AnnouncementBanner />
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
-      <HeroBanner activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main id="search" className="flex-1 bg-white">
+      <main className="flex-1">
         {activeTab === 'individual' ? (
           <>
             <SearchSection onResult={(r) => { setResult(r) }} />
