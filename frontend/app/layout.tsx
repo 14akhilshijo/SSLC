@@ -27,10 +27,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#1d4ed8' },
-    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
-  ],
+  themeColor: '#1d4ed8',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -39,9 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+      <body className="min-h-screen bg-white antialiased">
         <ThemeProvider>
           {children}
           <Toaster
@@ -49,14 +49,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             toastOptions={{
               duration: 4000,
               style: {
-                background: '#1e3a8a',
-                color: '#fff',
-                borderRadius: '12px',
-                border: '1px solid rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(10px)',
+                background: '#0f172a',
+                color: '#f8fafc',
+                borderRadius: '10px',
+                border: '1px solid #1e293b',
+                fontSize: '13px',
+                fontWeight: '500',
               },
-              success: { iconTheme: { primary: '#34d399', secondary: '#fff' } },
-              error: { iconTheme: { primary: '#f87171', secondary: '#fff' } },
+              success: { iconTheme: { primary: '#22c55e', secondary: '#fff' } },
+              error:   { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
             }}
           />
         </ThemeProvider>

@@ -1,8 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { useTheme } from './ThemeProvider'
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
-import { motion, AnimatePresence } from 'framer-motion'
+import { FiMenu, FiX } from 'react-icons/fi'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface Props {
   activeTab: 'individual' | 'school'
@@ -10,63 +9,55 @@ interface Props {
 }
 
 export default function Header({ activeTab, setActiveTab }: Props) {
-  const { theme, toggle } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 glass-dark shadow-lg shadow-black/20">
+    <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-600/30 flex-shrink-0">
-              <span className="text-white font-black text-[10px] tracking-tight">KPB</span>
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center flex-shrink-0 shadow-sm">
+              <span className="text-white font-black text-[11px] tracking-tight">KPB</span>
             </div>
-            <div className="hidden sm:block leading-tight">
-              <p className="text-white font-semibold text-sm">Kerala Pareeksha Bhavan</p>
-              <p className="text-blue-400 text-[11px]">SSLC Result Portal 2026</p>
-            </div>
-            <div className="sm:hidden">
-              <p className="text-white font-semibold text-sm">SSLC 2026</p>
+            <div className="leading-tight">
+              <p className="text-slate-900 font-bold text-sm">Kerala Pareeksha Bhavan</p>
+              <p className="text-slate-500 text-[11px]">SSLC Result Portal 2026</p>
             </div>
           </div>
 
-          {/* Desktop tabs */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 rounded-lg p-1">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1 p-1 bg-slate-100 rounded-xl">
             {(['individual', 'school'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                   activeTab === tab
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                    : 'text-slate-400 hover:text-white hover:bg-white/8'
+                    ? 'bg-white text-blue-600 shadow-sm font-semibold'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
-                {tab === 'individual' ? '🎓 Individual' : '🏫 School'}
+                {tab === 'individual' ? 'Individual Result' : 'School Result'}
               </button>
             ))}
           </nav>
 
-          {/* Right */}
-          <div className="flex items-center gap-1.5">
-            <button
-              onClick={toggle}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-              aria-label="Toggle theme"
+          {/* Right actions */}
+          <div className="flex items-center gap-2">
+            <a
+              href="#search"
+              className="hidden sm:inline-flex btn-blue text-xs py-2 px-4"
             >
-              {theme === 'dark' ? <FiSun size={16} /> : <FiMoon size={16} />}
-            </button>
-            <a href="#search" className="hidden sm:inline-flex btn-primary text-xs py-2 px-3.5">
               Check Result
             </a>
             <button
-              className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+              className="md:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
-              {menuOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+              {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
             </button>
           </div>
         </div>
@@ -79,27 +70,27 @@ export default function Header({ activeTab, setActiveTab }: Props) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-white/8 bg-slate-900/98 backdrop-blur-xl overflow-hidden"
+            transition={{ duration: 0.18 }}
+            className="md:hidden border-t border-slate-100 bg-white overflow-hidden"
           >
             <div className="px-4 py-3 space-y-1">
               {(['individual', 'school'] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => { setActiveTab(tab); setMenuOpen(false) }}
-                  className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     activeTab === tab
-                      ? 'bg-blue-600 text-white'
-                      : 'text-slate-300 hover:bg-white/8'
+                      ? 'bg-blue-50 text-blue-700 font-semibold'
+                      : 'text-slate-600 hover:bg-slate-50'
                   }`}
                 >
-                  {tab === 'individual' ? '🎓 Individual Result' : '🏫 School Result'}
+                  {tab === 'individual' ? 'Individual Result' : 'School Result'}
                 </button>
               ))}
               <a
                 href="#search"
                 onClick={() => setMenuOpen(false)}
-                className="block w-full text-center btn-primary mt-2"
+                className="block w-full text-center btn-blue mt-2"
               >
                 Check Result
               </a>

@@ -1,91 +1,114 @@
 'use client'
-import { FiGlobe } from 'react-icons/fi'
+import { FiGlobe, FiMail, FiPhone } from 'react-icons/fi'
 
 const gradeScale = [
-  { grade: 'A+', range: '90–100', color: 'bg-emerald-900/50 text-emerald-400 border-emerald-800/60' },
-  { grade: 'A',  range: '80–89',  color: 'bg-green-900/50  text-green-400  border-green-800/60' },
-  { grade: 'B+', range: '70–79',  color: 'bg-blue-900/50   text-blue-400   border-blue-800/60' },
-  { grade: 'B',  range: '60–69',  color: 'bg-cyan-900/50   text-cyan-400   border-cyan-800/60' },
-  { grade: 'C+', range: '50–59',  color: 'bg-yellow-900/50 text-yellow-400 border-yellow-800/60' },
-  { grade: 'C',  range: '40–49',  color: 'bg-orange-900/50 text-orange-400 border-orange-800/60' },
-  { grade: 'D',  range: '30–39',  color: 'bg-red-900/50    text-red-400    border-red-800/60' },
-  { grade: 'E',  range: '0–29',   color: 'bg-slate-800     text-slate-400  border-slate-700' },
+  { grade: 'A+', range: '90–100', cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
+  { grade: 'A',  range: '80–89',  cls: 'bg-green-50  text-green-700  border-green-200' },
+  { grade: 'B+', range: '70–79',  cls: 'bg-blue-50   text-blue-700   border-blue-200' },
+  { grade: 'B',  range: '60–69',  cls: 'bg-sky-50    text-sky-700    border-sky-200' },
+  { grade: 'C+', range: '50–59',  cls: 'bg-yellow-50 text-yellow-700 border-yellow-200' },
+  { grade: 'C',  range: '40–49',  cls: 'bg-orange-50 text-orange-700 border-orange-200' },
+  { grade: 'D',  range: '30–39',  cls: 'bg-red-50    text-red-700    border-red-200' },
+  { grade: 'E',  range: '0–29',   cls: 'bg-slate-50  text-slate-600  border-slate-200' },
 ]
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white border-t border-slate-800/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <footer className="bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
-        {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        {/* Main grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-black text-[10px]">KPB</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-black text-[11px]">KPB</span>
               </div>
               <div>
-                <p className="font-semibold text-white text-sm">Kerala Pareeksha Bhavan</p>
-                <p className="text-blue-400 text-[11px]">SSLC Result Portal 2026</p>
+                <p className="font-bold text-white text-sm">Kerala Pareeksha Bhavan</p>
+                <p className="text-slate-400 text-[11px]">SSLC Result Portal 2026</p>
               </div>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
-              Official result portal for Kerala SSLC Examination 2026. Fast, secure and reliable
-              result checking for students across all 14 districts.
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+              Official result portal for Kerala SSLC Examination 2026. Providing fast, secure
+              and reliable result access for students across all 14 districts of Kerala.
             </p>
-            <a
-              href="https://sslc.akhilshijoinnov.site"
-              className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-xs mt-3 transition-colors"
-            >
-              <FiGlobe size={12} /> sslc.akhilshijoinnov.site
-            </a>
+            <div className="mt-4 space-y-1.5">
+              <a
+                href="https://sslc.akhilshijoinnov.site"
+                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 text-xs transition-colors"
+              >
+                <FiGlobe size={12} /> sslc.akhilshijoinnov.site
+              </a>
+            </div>
           </div>
 
           {/* Quick links */}
           <div>
-            <h4 className="font-semibold text-slate-300 text-xs uppercase tracking-wider mb-3">Quick Links</h4>
-            <ul className="space-y-1.5 text-xs text-slate-500">
-              {['Individual Result', 'School-wise Result', 'Result Statistics', 'Download Mark Sheet', 'Verify Result'].map((link) => (
+            <h4 className="font-semibold text-slate-200 text-xs uppercase tracking-wider mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              {[
+                'Individual Result',
+                'School-wise Result',
+                'Result Statistics',
+                'Download Mark Sheet',
+                'Verify Result',
+              ].map((link) => (
                 <li key={link}>
-                  <a href="#search" className="hover:text-blue-400 transition-colors">→ {link}</a>
+                  <a href="#search" className="text-slate-400 hover:text-slate-200 text-sm transition-colors">
+                    {link}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Info */}
+          {/* Information */}
           <div>
-            <h4 className="font-semibold text-slate-300 text-xs uppercase tracking-wider mb-3">Information</h4>
-            <ul className="space-y-1.5 text-xs text-slate-500">
-              {['About Kerala Pareeksha Bhavan', 'Grading System', 'Re-valuation Process', 'Supplementary Exam', 'Contact Support'].map((link) => (
+            <h4 className="font-semibold text-slate-200 text-xs uppercase tracking-wider mb-4">Information</h4>
+            <ul className="space-y-2">
+              {[
+                'About Pareeksha Bhavan',
+                'Grading System',
+                'Re-valuation Process',
+                'Supplementary Exam',
+                'Contact Support',
+              ].map((link) => (
                 <li key={link}>
-                  <a href="#" className="hover:text-blue-400 transition-colors">→ {link}</a>
+                  <a href="#" className="text-slate-400 hover:text-slate-200 text-sm transition-colors">
+                    {link}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Grade scale */}
-        <div className="border-t border-slate-800/60 pt-6 mb-6">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 text-center">Grading Scale</p>
-          <div className="flex flex-wrap justify-center gap-1.5">
+        {/* Grading scale */}
+        <div className="border-t border-slate-800 pt-8 mb-8">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4 text-center">
+            Grading Scale
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
             {gradeScale.map((g) => (
-              <div key={g.grade} className={`px-2.5 py-1 rounded-lg border text-xs font-medium ${g.color}`}>
+              <div
+                key={g.grade}
+                className={`px-3 py-1.5 rounded-lg border text-xs font-medium ${g.cls}`}
+              >
                 <span className="font-bold">{g.grade}</span>
-                <span className="ml-1 opacity-60 text-[10px]">{g.range}%</span>
+                <span className="ml-1.5 opacity-70">{g.range}%</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-slate-800/60 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-600">
+        {/* Bottom */}
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <p>© 2026 Kerala Pareeksha Bhavan. All rights reserved.</p>
           <p>
-            Built with ❤️ for Kerala students ·{' '}
+            Built for Kerala students ·{' '}
             <a href="https://sslc.akhilshijoinnov.site" className="text-blue-500 hover:text-blue-400 transition-colors">
               sslc.akhilshijoinnov.site
             </a>
