@@ -17,7 +17,7 @@ export default function Home() {
   const [schoolCode, setSchoolCode] = useState('')
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white dark:bg-slate-950">
       <AnnouncementBanner />
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
       <HeroBanner />
