@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: kerala-sslc-api
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: KERALA_SSLC_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://sslc.akhilshijoinnov.site
+      - key: RATE_LIMIT_MAX
+        value: 100
+      - key: RESULT_CACHE_TTL
+        value: 86400
