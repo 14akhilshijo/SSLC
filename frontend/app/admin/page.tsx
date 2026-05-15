@@ -69,7 +69,7 @@ export default function AdminPage() {
           className="glass-white dark:glass-dark rounded-3xl p-8 w-full max-w-md shadow-2xl"
         >
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-xl mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-green-600 to-emerald-700 shadow-xl mb-4">
               <FiLock className="text-white" size={28} />
             </div>
             <h1 className="text-2xl font-black text-gray-900 dark:text-white">Admin Portal</h1>
@@ -104,9 +104,9 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-6 py-4 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-green-800 to-emerald-900 text-white px-6 py-4 flex items-center justify-between">
         <h1 className="text-xl font-bold">Admin Dashboard</h1>
-        <button onClick={() => setLoggedIn(false)} className="flex items-center gap-2 text-blue-300 hover:text-white transition-colors text-sm">
+        <button onClick={() => setLoggedIn(false)} className="flex items-center gap-2 text-green-300 hover:text-white transition-colors text-sm">
           <FiLogOut size={16} /> Logout
         </button>
       </div>
@@ -115,9 +115,9 @@ export default function AdminPage() {
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
           {[
-            { label: 'Total Results Cached', value: data?.totalResults ?? '—', icon: <FiUsers size={24} />, color: 'from-blue-500 to-blue-700' },
+            { label: 'Total Results Cached', value: data?.totalResults ?? '—', icon: <FiUsers size={24} />, color: 'from-green-500 to-green-700' },
             { label: "Today's Searches", value: data?.todaySearches ?? '—', icon: <FiSearch size={24} />, color: 'from-emerald-500 to-green-700' },
-            { label: 'System Status', value: 'Operational', icon: <FiActivity size={24} />, color: 'from-indigo-500 to-purple-700' },
+            { label: 'System Status', value: 'Operational', icon: <FiActivity size={24} />, color: 'from-teal-500 to-emerald-700' },
           ].map((s) => (
             <motion.div
               key={s.label}
@@ -133,7 +133,7 @@ export default function AdminPage() {
         </div>
 
         {/* Actions */}
-        <div className="glass-white dark:glass-dark rounded-2xl p-6 shadow-xl border border-blue-50 dark:border-slate-700 mb-8">
+        <div className="glass-white dark:glass-dark rounded-2xl p-6 shadow-xl border border-green-50 dark:border-slate-700 mb-8">
           <h2 className="font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h2>
           <div className="flex flex-wrap gap-3">
             <button onClick={flushCache} className="btn-secondary flex items-center gap-2">
@@ -147,7 +147,7 @@ export default function AdminPage() {
 
         {/* Recent searches */}
         {data?.recentSearches && data.recentSearches.length > 0 && (
-          <div className="glass-white dark:glass-dark rounded-2xl shadow-xl border border-blue-50 dark:border-slate-700 overflow-hidden">
+          <div className="glass-white dark:glass-dark rounded-2xl shadow-xl border border-green-50 dark:border-slate-700 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700">
               <h2 className="font-bold text-gray-900 dark:text-white">Recent Searches</h2>
             </div>

@@ -23,8 +23,8 @@ export function getGradeBg(grade: string): string {
   const map: Record<string, string> = {
     'A+': 'from-emerald-500 to-green-600',
     'A':  'from-green-500 to-teal-600',
-    'B+': 'from-blue-500 to-indigo-600',
-    'B':  'from-cyan-500 to-blue-600',
+    'B+': 'from-teal-500 to-emerald-600',
+    'B':  'from-cyan-500 to-teal-600',
     'C+': 'from-yellow-500 to-amber-600',
     'C':  'from-orange-500 to-amber-600',
     'D':  'from-red-400 to-rose-500',
